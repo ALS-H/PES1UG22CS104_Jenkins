@@ -14,11 +14,12 @@ pipeline {
             steps {
                 script {
                     sh './PES1UG22CS104-1' // Run the compiled program
+                    sh 'exit 1' // Intentional error to make the pipeline fail
                 }
             }
         }
         
-        stage12345('Deploy') {
+        stage('Deploy') { // Fixed incorrect syntax
             steps {
                 echo 'Deploying application...' 
                 // Add deployment steps here if needed
@@ -35,4 +36,3 @@ pipeline {
         }
     }
 }
-          
